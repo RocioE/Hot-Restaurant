@@ -78,12 +78,15 @@
     <script type="text/javascript">
       $(".submit").on("click", function (evt) {
         evt.preventDefault();
+        var id = parseInt($("#reserve-unique-id").val().trim());
+        console.log(typeof id);
         var newRes = {
-          custName: $("#reserve-name").val().trim(),
+          name: $("#reserve-name").val().trim(),
           phone: $("#reserve-phone").val().trim(),
-          mail: $("#reserve-email").val().trim(),
-          id: $("#reserve-unique-id").val().trim()
+          email: $("#reserve-email").val().trim(),
+          id: id
         }
+        console.log(newRes.name);
         $.post("/api/tables", newRes,
           function (data) {
 
